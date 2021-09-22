@@ -132,7 +132,7 @@ class ConnectFourGame:
 
 
 class DQN():
-    def __init__(self, ddqn, drift=False, episodes=2000, size=[7, 6]):
+    def __init__(self, ddqn, episodes=2000, size=[7, 6]):
         self.size = size
         if not (self.size[0] >= 6 and self.size[1] >= 6):  # Minimum size is 6x6 for this
             if self.size[0] < 6:
@@ -156,7 +156,7 @@ class DQN():
         self.epsilon_decay = self.epsilon_decay ** (1. / float(episodes))
 
         # Q Network weights filename
-        self.weights_file = 'ddqn_MKDS.h5' if ddqn else 'dqn_MKDS.h5'
+        self.weights_file = 'ddqn_Con4.h5' if ddqn else 'dqn_Con4S.h5'
         self.n_outputs = self.size[0]
         # Q Network for training
         self.q_model = self.build_model(self.n_outputs)
